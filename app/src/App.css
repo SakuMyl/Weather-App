@@ -1,12 +1,38 @@
 .App {
   background-color: #f8f9fa;
-  text-align: center;
   font: Arial-Regular;
   color: #262626;
+  --secondary-color: #70757A;
+  overflow: hidden;
 }
 
-span {
-  vertical-align: middle;
+.DropdownContainer {
+  padding: 0 12pt 0 12pt;
+  width: calc(100% - 24pt);
+  margin-bottom: 15px;
+  border: 1px solid lightgrey;
+  border-radius: 4px;
+  background-color: white;
+  height: 25pt;
+}
+
+.Dropdown {
+  width: 100%;
+  background-color: white;
+  border: none;
+  font-size: 13pt;
+  height: 100%;
+}
+
+.CityInfoContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+.ForecastContainer {
+  display: flex;
+  justify-content: space-between;
 }
 
 .TopBar {
@@ -21,14 +47,41 @@ span {
   background-color: white;
 }
 
+.CityName {
+  font-size: 19pt;
+}
+
+.WeatherDescription {
+  font-size: 13pt;
+  color: var(--secondary-color);
+}
+
+.Date {
+  font-size: 15pt;
+}
+
+.Clock {
+  font-size: 13pt;
+  color: var(--secondary-color);
+}
+
+.Temperature {
+  font-size: 26pt;
+}
+
 .CitiesInfoContainer {
-  width: 100%;
-  padding: 10px;
+  width: calc(100% - 20px);
+  margin: 10px;
 }
 
 .MainInfoBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 12pt;
   background-color: white;
-  width: 100%;
+  border: 1px grey;
+  border-radius: 4px;
 }
 
 .HourReport {
