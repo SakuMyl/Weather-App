@@ -2,25 +2,23 @@ import React from 'react';
 import MainInfoBlock from './MainInfoBlock';
 import ForecastCollection from './ForecastCollection';
 
-const CityInfo = ({city}) => {
-    console.log(city)
+const CityInfo = ({time, currentWeather, forecast}) => {
     return (
         <>
         <div className='CityInfoContainer'>
             <div>
             <MainInfoBlock
-                name={city.name || ''}
-                description={city.weather ? city.weather[0].main : ''}
-                temperature={city.main.temp || ''}
-                wind={city.wind.speed || ''}
-                humidity={city.main.humidity || ''}
-                precipitation={city.rain ? city.rain['3h'] : 0}
-                icon={city.weather ? city.weather[0].icon : null}
+                time={time}
+                name={currentWeather.name || ''}
+                description={currentWeather.weather ? currentWeather.weather[0].main : ''}
+                temperature={currentWeather.main.temp || ''}
+                wind={currentWeather.wind.speed || ''}
+                humidity={currentWeather.main.humidity || ''}
+                precipitation={currentWeather.rain ? currentWeather.rain['3h'] : 0}
+                icon={currentWeather.weather ? currentWeather.weather[0].icon : null}
                 />
             </div>
-            <ForecastCollection>
-
-            </ForecastCollection>
+            <ForecastCollection forecast={forecast}/>
         </div>
         </>
     )
