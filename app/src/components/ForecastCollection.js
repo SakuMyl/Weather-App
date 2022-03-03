@@ -1,9 +1,15 @@
 import React from 'react';
 import ForecastBlock from './ForecastBlock';
+import { getSimpleForecastObj } from '../utils';
 
-const ForecastCollection = (props) => {
+const ForecastCollection = ({cityId, forecasts}) => {
     return (
-        <div></div>
+        <div className='ForecastCollection'>
+            {forecasts.map((forecast, i) => {
+                const forecastObj = getSimpleForecastObj(forecast);
+                return <ForecastBlock key={`${cityId}-forecast-${i}`} forecast={forecastObj}/>;
+            })}
+        </div>
     );
 }
 

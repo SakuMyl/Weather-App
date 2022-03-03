@@ -40,9 +40,13 @@ const App = () => {
     })
   }
 
+  const getVisibleCityIndices = () => (
+    Array.from(Array(currentWeatherData.length).keys())
+    .filter(i => visibleCities.includes(cityIds[i]))
+  );
+
   useEffect(fetchCurrentWeather, []);
   useEffect(fetchForecast, []);
-  //setInterval(fetchCities, 60000)
 
   setInterval(() => {
     const newTime = moment().format('HH:mm');
@@ -51,6 +55,14 @@ const App = () => {
 
   const handleDropdown = (event) => {
     setVisibleCities(event.target.value);
+  }
+
+  const getAppropriateForecastsForCurrentTime = (forecasts) => {
+    const nForecasts = 5;
+    let startIndex = 1;
+    const time = moment();
+    if (time.hours() % 3 >= 2) startIndex = 2;
+    return forecasts.slice(startIndex, startIndex + nForecasts);
   }
 
   return (
@@ -69,12 +81,12 @@ const App = () => {
         </div>
         {
           currentWeatherData.length && forecastData.length ?
-          Array.from(Array(currentWeatherData.length).keys()).filter(i => visibleCities.includes(cityIds[i])).map(i => {
+          getVisibleCityIndices().map(i => {
             const currentWeather = currentWeatherData[i];
-            const forecast = forecastData[i];
+            const forecasts = getAppropriateForecastsForCurrentTime(forecastData[i].list);
             return (
               <div key={currentWeather.id}>
-                <CityInfo time={time} currentWeather={currentWeather} forecast={forecast} />
+                <CityInfo time={time} currentWeather={currentWeather} forecasts={forecasts} />
               </div>
             );
           }) :

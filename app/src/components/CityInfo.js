@@ -1,25 +1,16 @@
 import React from 'react';
 import MainInfoBlock from './MainInfoBlock';
 import ForecastCollection from './ForecastCollection';
+import { getSimpleWeatherObj } from '../utils';
 
-const CityInfo = ({time, currentWeather, forecast}) => {
+const CityInfo = ({time, currentWeather, forecasts}) => {
+    const weatherObj = getSimpleWeatherObj(currentWeather)
     return (
         <>
-        <div className='CityInfoContainer'>
-            <div>
-            <MainInfoBlock
-                time={time}
-                name={currentWeather.name || ''}
-                description={currentWeather.weather ? currentWeather.weather[0].main : ''}
-                temperature={currentWeather.main.temp || ''}
-                wind={currentWeather.wind.speed || ''}
-                humidity={currentWeather.main.humidity || ''}
-                precipitation={currentWeather.rain ? currentWeather.rain['3h'] : 0}
-                icon={currentWeather.weather ? currentWeather.weather[0].icon : null}
-                />
+            <div className='CityInfoContainer'>
+                <MainInfoBlock {...weatherObj}/>
+                <ForecastCollection forecasts={forecasts}/>
             </div>
-            <ForecastCollection forecast={forecast}/>
-        </div>
         </>
     )
 }

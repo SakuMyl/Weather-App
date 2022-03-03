@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import '../App.css';
 
-const MainInfoBlock = ({time, name, description, temperature, wind, humidity, precipitation, icon}) => {
+const MainInfoBlock = ({time, name, description, icon, temperature, wind, humidity, rain}) => {
     return (
         <div className='MainInfoBlock'>
             <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px'}}>
@@ -28,7 +28,7 @@ const MainInfoBlock = ({time, name, description, temperature, wind, humidity, pr
                         <span className='WeatherDescription'>Humidity: {humidity} %</span>
                     </div>
                     <div>
-                        <span className='WeatherDescription'>Precipitation: (3h) {precipitation} mm</span>
+                        <span className='WeatherDescription'>Precipitation (3h): {rain} mm</span>
                     </div>
                 </div>
             </div>
