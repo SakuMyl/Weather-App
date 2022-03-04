@@ -8,7 +8,7 @@ const CityInfo = ({time, currentWeather, forecasts}) => {
     return (
         <>
             <div className='CityInfoContainer'>
-                <MainInfoBlock {...weatherObj}/>
+                <MainInfoBlock time={time} {...weatherObj}/>
                 <ForecastCollection forecasts={forecasts}/>
             </div>
         </>
