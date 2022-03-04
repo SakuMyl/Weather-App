@@ -28,7 +28,7 @@ const MainInfoBlock = ({time, name, description, icon, temperature, wind, humidi
                         <span className='WeatherDescription'>Humidity: {humidity} %</span>
                     </div>
                     <div>
-                        <span className='WeatherDescription'>Precipitation (3h): {rain} mm</span>
+                        <span className='WeatherDescription'>Precipitation (3 h): {rain} mm</span>
                     </div>
                 </div>
             </div>

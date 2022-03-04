@@ -1,5 +1,11 @@
+@font-face {
+  font-family: 'Arial Regular';
+  src: url('../public/fonts/arial.ttf');
+}
+
 body {
   background-color: #f8f9fa;
+  font-family: 'Arial Regular';
 }
 
 .App {
@@ -11,7 +17,7 @@ body {
 }
 
 .DropdownContainer {
-  padding: 0 12pt 0 12pt;
+  padding: 6pt 12pt;
   width: calc(100% - 24pt);
   margin-bottom: 15px;
   border: 1px solid var(--border-color);
@@ -39,8 +45,9 @@ body {
   background-color: #00A5E5;
   display: flex;
   justify-content: flex-start;
-  padding: 5px;
+  padding: 8px 10px;
   height: 20px;
+  color: white;
 }
 
 .CityInfo {
@@ -113,6 +120,7 @@ body {
 
 .SmallTemperature {
   font-size: 15pt;
+  font-weight: 500;
 }
 
 .CitiesInfoContainer {
@@ -142,4 +150,5 @@ body {
   align-items: center;
   font-size: 23pt;
   height: 50pt;
+  border: 1px solid var(--border-color);
 }
